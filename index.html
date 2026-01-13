@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ju Smile Space</title>
+    <style>
+        :root {
+            --mint: #97d0ba;
+            --mint-dark: #5c9c84;
+            --text-main: #1f2937;
+            --text-sub: #6b7785;
+            --bg: #f7faf9;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--mint-dark);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        p.subtitle {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+        }
+
+        /* Grid Container */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* App Card */
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        /* Card Hover Effects */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: var(--mint);
+        }
+
+        /* Card Icon */
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: var(--bg);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--mint-dark);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        /* Button Look */
+        .btn {
+            background-color: var(--mint);
+            color: var(--text-main);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .card:hover .btn {
+            background-color: var(--mint-dark);
+            color: white;
+        }
+
+        /* Coming Soon Card Style */
+        .card.coming-soon {
+            opacity: 0.7;
+            cursor: default;
+        }
+        .card.coming-soon:hover {
+            transform: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-color: transparent;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding-top: 40px;
+            color: var(--text-sub);
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ju Smile Space</h1>
+        <p class="subtitle">讓生活更簡單，每天都好記</p>
+    </header>
+
+    <div class="app-grid">
+        
+        <a href="/ju-smile-app/" class="card" style="animation-delay: 0.1s;">
+            <div class="icon-box">🥗</div>
+            <h2>Ju Smile App</h2>
+            <p>熱量控制、飲食紀錄。<br>隨手一記，健康生活從今天開始。</p>
+            <span class="btn">開啟 App</span>
+        </a>
+
+        <div class="card coming-soon" style="animation-delay: 0.2s;">
+            <div class="icon-box">☕</div>
+            <h2>Coffee Diary</h2>
+            <p>紀錄每一杯咖啡的風味與產地。<br>(開發中，敬請期待)</p>
+            <span class="btn" style="background: #e9ecef; color: #999;">Coming Soon</span>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Ju Smile Space. All rights reserved.
+    </footer>
+
+</body>
+</html>
