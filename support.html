@@ -211,7 +211,7 @@
         <div class="option-card">
             <div class="option-title">
                 <span>💰</span>
-                <span>街口支付（台灣推薦）</span>
+                <span>街口支付</span>
             </div>
             <p class="option-desc">
                 使用街口 App 掃描 QR Code 即可贊助
@@ -233,13 +233,16 @@
                 <span>Buy Me a Coffee</span>
             </div>
             <p class="option-desc">
-                信用卡支付，適合國際用戶
+                信用卡支付
             </p>
             <a href="https://buymeacoffee.com/你的帳號" target="_blank" class="btn btn-yellow">
                 <span>☕️</span>
                 <span>Buy Me a Coffee</span>
             </a>
         </div>
+
+       <!-- ============ 其他支持方式 ============ -->
+        <div class="section-divider">💙 其他支持方式</div>
 
         <!-- 留下好評 -->
         <div class="option-card">
@@ -256,13 +259,73 @@
             </a>
         </div>
 
+        <!-- 分享給朋友 -->
+        <div class="option-card">
+            <div class="option-title">
+                <span>📱</span>
+                <span>分享給朋友</span>
+            </div>
+            <p class="option-desc">
+                推薦好用的 App 給需要的朋友
+            </p>
+            <button onclick="shareApp()" class="btn btn-mint">
+                <span>📤</span>
+                <span>分享 App</span>
+            </button>
+        </div>
+
+        <!-- 提供建議 -->
+        <div class="option-card">
+            <div class="option-title">
+                <span>💬</span>
+                <span>提供建議</span>
+            </div>
+            <p class="option-desc">
+                您的意見能幫助我們持續改進
+            </p>
+            <a href="https://forms.gle/ivTaSXeApsHTYPMw5" target="_blank" class="btn btn-outline">
+                <span>✉️</span>
+                <span>填寫意見表單</span>
+            </a>
+        </div>
+
         <!-- 簡單說明 -->
         <div class="note">
-            分享給朋友或提供建議，<br>
-            也是對我們最大的鼓勵 ❤️
+            感謝每一位使用者的支持與鼓勵 ❤️<br>
+            你們是 Ju Smile App 持續進步的動力
         </div>
 
     </div>
+
+    <script>
+    function shareApp() {
+        // 如果瀏覽器支援 Web Share API（大部分手機都支援）
+        if (navigator.share) {
+            navigator.share({
+                title: 'Ju Smile App - 健康管理好幫手',
+                text: '推薦你一個超好用的健康管理 App，用手掌就能估算熱量！',
+                url: 'https://apps.apple.com/app/id6757354366'
+            }).catch(err => {
+                // 使用者取消分享或發生錯誤，不做任何事
+                console.log('Share cancelled or failed:', err);
+            });
+        } else {
+            // 桌面版：複製連結到剪貼簿
+            const url = 'https://apps.apple.com/app/id6757354366';
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('App 連結已複製！\n可以貼給朋友了 ✓');
+                }).catch(() => {
+                    // 如果複製失敗，提供手動複製的訊息
+                    prompt('請複製以下連結：', url);
+                });
+            } else {
+                // 舊瀏覽器的備案
+                prompt('請複製以下連結：', url);
+            }
+        }
+    }
+    </script>
 
 </body>
 </html>
