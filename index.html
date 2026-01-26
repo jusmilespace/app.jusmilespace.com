@@ -12,35 +12,29 @@
     <meta property="og:url" content="https://app.jusmilespace.com">
 
     <style>
-        :root {
-            --mint: #97d0ba;
-            --mint-dark: #5c9c84;
-            --charcoal: #1f2937;
-            --text-sub: #6b7785;
-            --bg: #f7faf9;
-            --white: #ffffff;
-        }
+    /* 1. 強制所有層級使用系統黑體，移除多餘的大括號 */
+    html, body, #root, * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        /* 將 PingFang TC 放在最前面，這是 iOS 顯示黑體的關鍵 */
+        font-family: "PingFang TC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-        * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    /* 必須加入 "PingFang TC" (蘋果黑體) */
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-}
+    /* 2. 確保表單控制元件也繼承字體 */
+    input, button, textarea, select {
+        font-family: inherit !important;
+        font-size: inherit;
+    }
 
-body {
-    background-color: var(--bg);
-    color: var(--charcoal);
-    /* 這裡也要加 */
-    font-family: -apple-system, "PingFang TC", sans-serif;
-}
-
-/* 🌟 針對輸入框與按鈕的特別強化 (Safari 常在這出錯) */
-input, button, select, textarea {
-    font-family: inherit !important;
-    -webkit-appearance: none; /* 移除 Safari 預設樣式 */
-}
+    /* 3. 修正 body 背景與顏色 */
+    body {
+        background-color: #f7faf9; /* 你的 var(--bg) */
+        color: #1f2937;           /* 你的 var(--charcoal) */
+    }
+</style>
 
         /* 頂部 Header */
         header {
