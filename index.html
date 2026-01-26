@@ -154,27 +154,39 @@
         font-size: 14px; font-weight: bold;
     }
 
+    /* 頁尾修正 */
     footer {
         margin-top: auto;
         border-top: 1px solid #eee;
         padding-top: 30px;
         width: 100%;
         max-width: 800px;
-        text-align: center;
+        text-align: center; /* 確保內容水平置中 */
+        margin-left: auto;  /* 雙重保險置中 */
+        margin-right: auto;
     }
 
     .footer-links {
         display: flex;
-        justify-content: center;
+        justify-content: center; /* 水平居中所有連結 */
+        align-items: center;     /* 垂直置中，解決 ☕️ 圖示造成的偏移 */
         gap: 20px;
         margin-bottom: 16px;
-        flex-wrap: wrap;
+        flex-wrap: wrap;         /* 手機版自動換行 */
     }
 
     .footer-links a {
         color: var(--text-sub);
         text-decoration: none;
         font-size: 0.9rem;
+        display: inline-flex;    /* 使用 flex 確保文字與圖示在同一水平線 */
+        align-items: center;
+        white-space: nowrap;     /* 防止文字在奇怪的地方斷行 */
+    }
+
+    .footer-links a:hover {
+        color: var(--mint-dark);
+        text-decoration: underline;
     }
 
     @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
