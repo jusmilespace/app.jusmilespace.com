@@ -40,6 +40,7 @@
             padding: 0;
             /* 改為 0，讓 Navbar 貼頂 */
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             font-family: var(--font);
         }
 
@@ -66,9 +67,14 @@
         .logo {
             font-size: 24px;
             font-weight: 800;
+            /* 官網使用的是 800，但因為有抗鋸齒所以看起來不會太粗 */
             color: var(--mint-dark);
             text-decoration: none;
             letter-spacing: -0.8px;
+            /* 稍微縮小字距，視覺上會更精緻 */
+            display: flex;
+            align-items: center;
+            line-height: 1;
         }
 
         .nav-links {
