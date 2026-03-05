@@ -111,10 +111,27 @@
         @media (max-width: 768px) {
             .menu-toggle {
                 display: flex !important;
+                flex-direction: column;
+                /* 確保線條垂直排列 */
+                gap: 5px;
+                /* 關鍵：設定線條之間的間距 */
                 position: relative;
                 z-index: 2001;
-                /* 關鍵：確保 X 的層級高於滑出的選單 */
+                cursor: pointer;
                 transition: all 0.3s ease;
+            }
+
+            /* 確保這段 X 動畫代碼也在 CSS 內，才能正確切換 */
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
             }
 
             .menu-toggle .bar {
